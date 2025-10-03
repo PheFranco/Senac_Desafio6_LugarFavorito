@@ -1,19 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Discover Your World</title>
-    <!-- Task 1: Add the favicon link here -->
-    <!-- Task 2: Add link to script here -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Discover Your World</title>
+        <!-- favicon com tema de globo -->
+        <link rel="icon" type="image/png" href="https://edube.org/uploads/media/default/0001/04/web-favicon.png">
+        <link rel="stylesheet" href="styles.css">
+        <script src="mapa.js" defer></script>
 </head>
 <body>
-    <h1>Discover Your World <!-- Task 3: Add an emoji here --></h1>
-    <p>Click the button to learn about the continent you're on and some famous geographical features.</p>
-    <!-- Task 4: Add a button for displaying geolocation information here -->
+        <a class="skip-link" href="#main">Pular para o conteúdo</a>
 
-    <img src="https://edube.org/uploads/media/default/0001/04/continents.jpg" usemap="#image-map" alt="World Map">
-    <map name="image-map">
-        <!-- Task 5: Add area tags for continents here -->
-    </map>
+        <header class="site-header" role="banner">
+            <div class="container">
+                <h1 class="site-title">Discover Your World &#x1F30D;</h1>
+                <p class="lead">Clique em um continente no mapa para aprender curiosidades; ou descubra sua localização usando o botão abaixo.</p>
+                <div class="controls">
+                    <!-- Botão que será ligado à API de Geolocalização pelo JavaScript -->
+                    <button id="getLocation" class="btn" aria-label="Descobrir minha localização">Descobrir localização</button>
+                </div>
+            </div>
+        </header>
+
+        <main id="main" class="container" role="main">
+            <section aria-label="Mapa do mundo" class="map-section">
+                <figure class="map-wrap">
+                    <img class="responsive-map" src="https://edube.org/uploads/media/default/0001/04/continents.jpg" usemap="#image-map" alt="Mapa-múndi mostrando os continentes">
+                    <map name="image-map" id="image-map">
+                        <!-- Áreas clicáveis para os continentes. IDs usam forma 'slug' para compatibilidade; -->
+                        <area shape="rect" coords="386,283,41,17" href="#" title="América do Norte" id="america-do-norte" data-name="América do Norte" alt="América do Norte">
+                        <area shape="rect" coords="209,501,358,288" href="#" title="América do Sul" id="america-do-sul" data-name="América do Sul" alt="América do Sul">
+                        <area shape="rect" coords="391,68,505,217" href="#" title="Europa" id="europa" data-name="Europa" alt="Europa">
+                        <area shape="rect" coords="533,217,387,448" href="#" title="África" id="africa" data-name="África" alt="África">
+                        <area shape="rect" coords="893,153,506,1" href="#" title="Ásia" id="asia" data-name="Ásia" alt="Ásia">
+                        <area shape="rect" coords="679,353,872,480" href="#" title="Austrália e Oceania" id="oceania" data-name="Austrália e Oceania" alt="Austrália e Oceania">
+                    </map>
+                    <figcaption class="visually-hidden">Mapa-múndi interativo. Use o mouse ou o teclado através dos controles abaixo.</figcaption>
+                </figure>
+
+                <!-- Container de saída criado dinamicamente pelo script.js (aria-live configurado) -->
+            </section>
+
+            <!-- Controles de acessibilidade (criados via JS também) serão inseridos abaixo pelo script quando necessário -->
+        </main>
+
+        <footer class="site-footer">
+            <div class="container">Projeto educativo — descubra mais sobre os continentes</div>
+        </footer>
+
+    <!-- Script principal da página (integração JS do time) -->
+    <script src="script.js" defer></script>
 </body>
 </html>
